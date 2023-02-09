@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.allaykhalil.apicallingwithcoroutinesandhilt.ui.dashboard.viewModel.DashboardViewModel" />
+
+
+
+        <variable
+            name="fetchAllPopularCurrencies"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="fetchAllCurrencySymbols"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".ui.dashboard.DashBoard">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <Button
+                android:id="@+id/btn_go_to_currency_change"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:onClick="@{fetchAllCurrencySymbols}"
+                android:text="Currency Change"
+                android:visibility="visible" />
+
+
+            <Button
+                android:layout_below="@+id/btn_go_to_currency_change"
+                android:id="@+id/btn_go_to_popular_currency"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:onClick="@{fetchAllPopularCurrencies}"
+                android:text="Popular currencies"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

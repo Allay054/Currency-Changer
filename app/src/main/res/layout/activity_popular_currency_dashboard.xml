@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="getPopularCurrency"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.allaykhalil.apicallingwithcoroutinesandhilt.ui.popularCurrencies.viewModel.PopularCurrencyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".ui.contacts.ContactsActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/laHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I'm using AED,AFN,ALL,AMD,ANG,AOA,ARS   as samples values due to save some time,but we can modify this if required" />
+
+            <Button
+                android:id="@+id/btnConvertCurrency"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/laHint"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:onClick="@{getPopularCurrency}"
+                android:text="Get Popular Currencies"
+                android:textAllCaps="false"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnConvertCurrency"
+                android:layout_marginTop="20dp"
+                android:text="@{viewModel.obtainedResult}" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

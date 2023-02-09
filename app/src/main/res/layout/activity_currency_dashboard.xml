@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="showDropDownA"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="showDropDownB"
+            type="android.view.View.OnClickListener" />
+
+      <!--  <variable
+            name="convertCurrency"
+            type="android.view.View.OnClickListener" />-->
+
+        <variable
+            name="historyDetail"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.allaykhalil.apicallingwithcoroutinesandhilt.ui.currencyChanger.viewModel.CurrencyDashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".ui.contacts.ContactsActivity">
+
+        <!--<androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            app:addItems="@{viewModel.observableArrayList}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btn_fetch_contacts_from_server"
+            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--       <Button
+                   android:id="@+id/btn_fetch_contacts_from_server"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:onClick="@{() -> viewModel.fetchAllCallList()}"
+                   android:text="From All Calls"
+                   android:visibility="gone"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent" />-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/laCountryA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/et_currencyValueA"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/et_bg"
+                        android:hint="Enter Amount Value"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText,UnusedAttribute" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/laSymbolA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_bg"
+                    android:onClick="@{showDropDownA}">
+
+                    <TextView
+                        android:id="@+id/et_selectedCountryA"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_toStartOf="@+id/layout_drop_a"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:hint="From"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="14sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/layout_drop_a"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/btn_background"
+                        android:clickable="false">
+
+                        <ImageView
+                            android:id="@+id/img_drop"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="15dp"
+                            android:clickable="false"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/dp_down"
+                            android:visibility="visible"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/laCountryB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/laCountryA"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/et_currencyValueB"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/et_bg"
+                        android:hint="Enter Amount Value"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="14sp"
+                        tools:ignore="HardcodedText,UnusedAttribute" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/laSymbolB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/et_bg"
+                    android:onClick="@{showDropDownB}">
+
+                    <TextView
+                        android:id="@+id/et_selectedCountryB"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_toStartOf="@+id/layout_drop_b"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:hint="To"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="14sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/layout_drop_b"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/btn_background"
+                        android:clickable="false">
+
+                        <ImageView
+                            android:id="@+id/img_drop_roofAge"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginEnd="15dp"
+                            android:clickable="false"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/dp_down"
+                            android:visibility="visible"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/btnConvertCurrency"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/laCountryB"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:onClick="@{historyDetail}"
+                android:text="Historical Data"
+                android:visibility="visible" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
