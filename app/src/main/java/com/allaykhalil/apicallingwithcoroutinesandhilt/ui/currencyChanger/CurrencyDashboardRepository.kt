@@ -28,5 +28,4 @@ class CurrencyDashboardRepository @Inject constructor(dataManager: DataManager) 
         }
     }
 
-
 }
